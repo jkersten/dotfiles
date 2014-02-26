@@ -1,0 +1,27 @@
+[user]
+	name = Joost Kersten
+	email = jvkersten@gmail.com
+[github]
+	user = jkersten
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	ui = true
+[push]
+	default = simple
+[init]
+	templatedir = ~/.git_template
+[alias]
+	ctags = !.git/hooks/ctags
+[merge]
+	tool = vimdiff
+	ff = false
+[core]
+	editor = vim -f
+	excludesfile = ~/.gitignore
+	pager = less
+[help]
+	autocorrect = 1
+[grep]
+	linenumber = true

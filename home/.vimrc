@@ -6,34 +6,41 @@ runtime macros/matchit.vim
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
+
+" Visual
 Bundle 'bling/vim-airline'
-Bundle 'mileszs/ack.vim'
-Bundle 'tpope/vim-rails'
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-Bundle 'wincent/Command-T'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'w0ng/vim-hybrid'
-Bundle 'scrooloose/nerdtree'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'tpope/vim-bundler'
-Bundle 'tpope/vim-rake'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-cucumber'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-rbenv'
 Bundle 'airblade/vim-gitgutter'
-Bundle 'basepi/vim-conque'
-Bundle 'skwp/vim-ruby-conque'
+
+" Search
 Bundle 'kien/ctrlp.vim'
-Bundle 'slim-template/vim-slim'
+Bundle 'ervandew/supertab'
+Bundle 'tomtom/tcomment_vim'
 Bundle 'rking/ag.vim'
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'thoughtbot/vim-rspec'
 Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'SirVer/ultisnips'
+
+Bundle 'tpope/vim-rbenv'
+Bundle 'tpope/vim-rake'
+Bundle 'tpope/vim-bundler'
+Bundle 'tpope/vim-cucumber'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-unimpaired'
+
+" Language plugins
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'slim-template/vim-slim'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'thoughtbot/vim-rspec'
+
 
 " File types
 filetype plugin indent on
@@ -174,26 +181,30 @@ map <C-t> <esc>:tabnew<cr>
 map <C-n> :cn<cr>
 map <C-p> :cp<cr>
 
-
-
 " RSpec.vim mappings
-let g:rspec_command = "!spring rspec {spec}"
+let g:rspec_command = "!time spring rspec {spec}"
 map <Leader>bi :! bundle install && rbenv rehash<CR>
+map <Leader>bu :! bundle update && rbenv rehash<CR>
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>n :call RunNearestSpec()<CR>
+map <Leader>m :!<SPACE>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 map <Leader>r :!spring rspec spec<CR>
-"map <Leader>s :RelatedSpecVOpen<CR>
+map <Leader>s :RelatedSpecVOpen<CR>
 map <Leader>h <c-p>
 map <Leader>at :AT<CR>
 map <Leader>re :RT<CR>
 map <Leader>i mmgg=G`m<CR>
 map <Leader>p :set paste<CR>o<ESC>"*]:set notpaste<CR> 
-map <Leader>gac :Gcommit -m -a ""<LEFT>
-map <Leader>gc :Gcommit -m ""<LEFT>
-map <Leader>gs :Gstatus<CR>
+map <Leader>gaa :! git add .<LEFT>
+map <Leader>gac :! git commit -m -a ""<LEFT>
+map <Leader>gc :! git commit -m ""<LEFT>
+map <Leader>gd :! git diff<CR> 
+map <Leader>gdf :! git diff 
+map <Leader>gs :! git status<CR>
 map <Leader>gw :! git add . && git commit -m "WIP"<CR>
+map <Leader>gp :! git push<CR>
 map <Leader>vi :tabe ~/.vimrc<CR>
 
 " CtrlP
@@ -219,4 +230,4 @@ function! RenameFile()
     redraw!
   endif
 endfunction
-map <Leader>n :call RenameFile()<cr>
+map <Leader>mv :call RenameFile()<cr>
