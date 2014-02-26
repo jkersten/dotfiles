@@ -27,8 +27,9 @@ function create_executables {
 }
 
 echo ""
-create_executables "home/bin"
 create_executables "home/.git_template/hooks"
+create_executables "home/bin"
+ln -nsf "home/bin" "$HOME/bin"
 
 echo ""
 echo "Backups can be found in ~/dotfiles_old"
