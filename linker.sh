@@ -1,9 +1,11 @@
 #!/bin/bash
 
+GLOBIGNORE=.:..
+
 backup_dir="$HOME/dotfiles_old"
 mkdir -p $backup_dir
 
-for file in home/.[^.]*; do
+for file in home/*; do
   path="$(pwd)/$file"
   base=$(basename $file)
   target="$HOME/$base"
@@ -29,7 +31,6 @@ function create_executables {
 echo ""
 create_executables "home/.git_template/hooks"
 create_executables "home/bin"
-ln -nsf "home/bin" "$HOME/bin"
 
 echo ""
 echo "Backups can be found in ~/dotfiles_old"
