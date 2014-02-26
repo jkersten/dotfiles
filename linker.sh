@@ -9,8 +9,13 @@ for file in home/.[^.]*; do
   target="$HOME/$base"
   backup="$backup_dir/$base"
 
-  echo "Symlinking ~/home/$base to ~/$base"
-  cp -rf $target $backup
+  if [ ! -L "$target" -a -e "$target" ]; then
+    echo ""
+    echo "Backing up ~/$base"
+    cp -rf $path $backup
+  fi
+
+  echo "Symlinking ~/$base"
   ln -nsf $path $target
 done
 
@@ -22,8 +27,9 @@ function create_executables {
 }
 
 echo ""
-create_executables "home/.git_template/hooks"
 create_executables "home/bin"
+create_executables "home/.git_template/hooks"
 
 echo ""
-echo "Your old dotfiles have been backed up to ~/$(basename backup_dir)"
+echo "Backups can be found in ~/dotfiles_old"
+
