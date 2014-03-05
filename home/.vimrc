@@ -15,24 +15,24 @@ Bundle 'airblade/vim-gitgutter'
 
 " Search
 Bundle 'kien/ctrlp.vim'
+Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'ervandew/supertab'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'rking/ag.vim'
-Bundle 'kana/vim-textobj-user'
-Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'SirVer/ultisnips'
 
+Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rbenv'
-Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-bundler'
+Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-speeddating'
 
 " Language plugins
 Bundle 'kchmck/vim-coffee-script'
@@ -41,6 +41,11 @@ Bundle 'slim-template/vim-slim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'thoughtbot/vim-rspec'
 
+Bundle 'kana/vim-textobj-user'
+Bundle 'nelstrom/vim-textobj-rubyblock'
+
+Bundle 'vim-scripts/taglist.vim'
+Bundle 'vim-scripts/Conque-Shell'
 
 " File types
 filetype plugin indent on
@@ -58,7 +63,6 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab
-set list
 set listchars=tab:▸\ ,eol:¬,nbsp:⋅,trail:⋅
 set shiftround
 
@@ -92,6 +96,7 @@ set mouse=a
 
 " Current line
 set relativenumber
+set number
 set cursorline
 
 set nrformats=octal
@@ -181,6 +186,8 @@ map <C-t> <esc>:tabnew<cr>
 map <C-n> :cn<cr>
 map <C-p> :cp<cr>
 
+inoremap jj <ESC>
+
 " RSpec.vim mappings
 let g:rspec_command = "!time spring rspec {spec}"
 map <Leader>bi :! bundle install && rbenv rehash<CR>
@@ -196,6 +203,7 @@ map <Leader>h <c-p>
 map <Leader>at :AT<CR>
 map <Leader>re :RT<CR>
 map <Leader>i mmgg=G`m<CR>
+map <Leader>li :set list!<CR>
 map <Leader>p :set paste<CR>o<ESC>"*]:set notpaste<CR> 
 map <Leader>gaa :! git add .<LEFT>
 map <Leader>gac :! git commit -m -a ""<LEFT>
@@ -210,16 +218,6 @@ map <Leader>vi :tabe ~/.vimrc<CR>
 " CtrlP
 set wildignore+=*/tmp/*,*/log/*,*/bin/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-
-function! InsertTabWrapper()
-  let col = col(".") - 1
-  if !col || getline(".")[col - 1] !~ '\k'
-    return "\<tab>"
-  else
-    return "\<c-n>"
-endfunction
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <s-tab> <c-p>
 
 function! RenameFile()
   let old_name = expand('%')
