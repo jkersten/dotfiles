@@ -75,6 +75,21 @@ colorscheme solarized
 " Buffer options
 set hidden
 
+" Status line
+set showcmd
+set history=5000
+let g:airline_powerline_fonts = 1
+highlight SignColumn ctermbg=black
+
+" Keyboard mappings
+let mapleader = ","
+let g:rspec_command = "!time spring rspec {spec}"
+
+" CtrlP
+set wildignore+=*/tmp/*,*/log/*,*/bin/*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+
+" Auto commands
 autocmd BufRead,BufNewFile *.ru set filetype=ruby
 autocmd BufRead,BufNewFile [vV]agrantfile set filetype=ruby
 autocmd BufRead,BufNewFile Guardfile set filetype=ruby
@@ -95,19 +110,8 @@ autocmd BufWritePost *
 augroup vimscript
   autocmd!
   autocmd BufWritePost $MYVIMRC source $MYVIMRC
+  autocmd BufWritePost ~/bundles.vim source $MYVIMRC
+  autocmd BufWritePost ~/mappings.vim source $MYVIMRC
 augroup END
-
-" Status line
-set showcmd
-let g:airline_powerline_fonts = 1
-highlight SignColumn ctermbg=black
-
-" Keyboard mappings
-let mapleader = ","
-let g:rspec_command = "!time spring rspec {spec}"
-
-" CtrlP
-set wildignore+=*/tmp/*,*/log/*,*/bin/*,*.so,*.swp,*.zip
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 source ~/mappings.vim
