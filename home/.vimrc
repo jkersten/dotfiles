@@ -52,7 +52,7 @@ set mouse=a
 "set t_Co=256
 
 " Current line
-set relativenumber
+"set relativenumber
 set number
 set cursorline
 
@@ -112,6 +112,11 @@ augroup vimscript
   autocmd BufWritePost $MYVIMRC source $MYVIMRC
   autocmd BufWritePost ~/bundles.vim source $MYVIMRC
   autocmd BufWritePost ~/mappings.vim source $MYVIMRC
+augroup END
+
+augroup rubypath
+  autocmd!
+  autocmd FileType ruby setlocal suffixesadd+=.rb
 augroup END
 
 source ~/mappings.vim
