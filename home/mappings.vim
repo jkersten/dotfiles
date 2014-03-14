@@ -31,8 +31,8 @@ noremap <C-h> :noh<cr>
 inoremap jj <ESC>
 
 " RSpec.vim mappings
-map <Leader>bi :! bundle install && rbenv rehash<CR>
-map <Leader>bu :! bundle update && rbenv rehash<CR>
+map <Leader>bi :! bundle install && rbenv rehash && touch tmp/restart.txt<CR>
+map <Leader>bu :! bundle update && rbenv rehash && touch tmp/restart.txt<CR>
 map <Leader>c :TComment<CR>
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>tb :TagbarToggle<CR>
@@ -61,6 +61,8 @@ map <Leader>vim :tabe ~/.vimrc<CR>
 map <Leader>vib :tabe ~/bundles.vim<CR>
 map <Leader>vik :tabe ~/mappings.vim<CR>
 map <Leader>nm :set relativenumber!<CR>
+map <Leader>mi :! rake db:migrate<CR>
+map <leader>rb :! rake db:rollback<CR>
 map <Leader><Leader> :@<CR>
 
 map <Leader>ec :Econtroller<SPACE>
@@ -75,6 +77,7 @@ map <Leader>el :Elocale<SPACE>
 map <Leader>ema :Emailer<SPACE>
 map <Leader>emi :Emigration<SPACE>
 map <Leader>em :Emodel<SPACE>
+map <Leader>er :edit config/routes.rb<CR>
 map <Leader>es :Espec<SPACE>
 map <Leader>ess :Estylesheet<SPACE>
 map <Leader>et :Etask<SPACE>
@@ -94,6 +97,7 @@ map <Leader>sl :Slocale<SPACE>
 map <Leader>sma :Smailer<SPACE>
 map <Leader>smi :Smigration<SPACE>
 map <Leader>sm :Smodel<SPACE>
+map <Leader>sr :split config/routes.rb<CR>
 map <Leader>ss :Sspec<SPACE>
 map <Leader>sss :Sstylesheet<SPACE>
 map <Leader>st :Stask<SPACE>
@@ -112,6 +116,7 @@ map <Leader>vl :Vlocale<SPACE>
 map <Leader>vma :Vmailer<SPACE>
 map <Leader>vmi :Vmigration<SPACE>
 map <Leader>vm :Vmodel<SPACE>
+map <Leader>vr :vsplit config/routes.rb<CR>
 map <Leader>vs :Vspec<SPACE>
 map <Leader>vss :Vstylesheet<SPACE>
 map <Leader>vt :Vtask<SPACE>
@@ -130,6 +135,7 @@ map <Leader>tl :Tlocale<SPACE>
 map <Leader>tma :Tmailer<SPACE>
 map <Leader>tmi :Tmigration<SPACE>
 map <Leader>tm :Tmodel<SPACE>
+map <Leader>tr :tabe config/routes.rb<CR>
 map <Leader>ts :Tspec<SPACE>
 map <Leader>tss :Tstylesheet<SPACE>
 map <Leader>tt :Ttask<SPACE>
