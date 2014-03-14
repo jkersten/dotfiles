@@ -23,13 +23,13 @@ set viewoptions=folds,options,cursor,unix,slash
 set virtualedit=onemore
 set hidden
 
-set dir=$HOME/.vim/tmp/swp//,/var/tmp//,/tmp//
+set directory=$HOME/.vim/.tmp/swp//,/var/tmp//,/tmp//
+set backupdir=./.backup//,$HOME/.vim/.tmp/backup//,/var/tmp//,/tmp//
 set backup
-set backupdir=./.backup,$HOME/.vim/tmp/backup,/var/tmp,/tmp
 
 if has('persistent_undo')
+  set undodir=$HOME/.vim/.tmp/undo//,/var/tmp//,/tmp//
   set undofile
-  set undodir=$HOME/.vim/tmp/undo,/var/tmp,/tmp
   set undolevels=1000
   set undoreload=10000
 endif

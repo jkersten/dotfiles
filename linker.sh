@@ -33,5 +33,10 @@ create_executables "home/.git_template/hooks"
 create_executables "home/bin"
 
 echo ""
-echo "Backups can be found in ~/dotfiles_old"
+echo "Creating ~/.vim/.tmp"
+mkdir -p $HOME/.vim/.tmp/tmp
+mkdir -p $HOME/.vim/.tmp/undo
+mkdir -p $HOME/.vim/.tmp/backup
 
+echo ""
+echo "Backups can be found in ~/dotfiles_old"
