@@ -8,6 +8,7 @@ Bundle 'bling/vim-airline'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'w0ng/vim-hybrid'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'Yggdroot/indentline'
 
 " Search
 Bundle 'kien/ctrlp.vim'
@@ -17,6 +18,8 @@ Bundle 'tomtom/tcomment_vim'
 Bundle 'rking/ag.vim'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'SirVer/ultisnips'
+Bundle 'Lokaltog/vim-easymotion.git'
+"Bundle 'majutsushi/tagbar'
 
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rbenv'

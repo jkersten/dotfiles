@@ -3,8 +3,6 @@ nnoremap ; :
 nnoremap <leader><space> :noh<cr>
 nnoremap Y y$
 nnoremap & :&&<cr>
-"nnoremap : ;
-nnoremap <C-s-p> :RelatedSpecVOpen<cr>
 nnoremap j gj
 nnoremap k gk
 nnoremap 0 g0
@@ -35,15 +33,18 @@ inoremap jj <ESC>
 " RSpec.vim mappings
 map <Leader>bi :! bundle install && rbenv rehash<CR>
 map <Leader>bu :! bundle update && rbenv rehash<CR>
+map <Leader>c :TComment<CR>
 map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>tb :TagbarToggle<CR>
 map <Leader>n :call RunNearestSpec()<CR>
 map <Leader>m :!<SPACE>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 map <Leader>r :!rspec spec<CR>
-map <Leader>s :RelatedSpecVOpen<CR>
+map <Leader>s :Rake<CR>
 map <Leader>h <c-p>
 map <Leader>at :AT<CR>
+map <Leader>as :AV<CR>
 map <Leader>re :RT<CR>
 map <Leader>i mmgg=G`m<CR>
 map <Leader>li :set list!<CR>
@@ -56,14 +57,16 @@ map <Leader>gdf :! git diff
 map <Leader>gs :! git status<CR>
 map <Leader>gw :! git add . && git commit -m "WIP"<CR>
 map <Leader>gp :! git push<CR>
-map <Leader>vi :tabe ~/.vimrc<CR>
+map <Leader>vim :tabe ~/.vimrc<CR>
 map <Leader>vib :tabe ~/bundles.vim<CR>
-map <Leader>vim :tabe ~/mappings.vim<CR>
+map <Leader>vik :tabe ~/mappings.vim<CR>
 map <Leader>nm :set relativenumber!<CR>
+map <Leader><Leader> :@<CR>
 
 map <Leader>ec :Econtroller<SPACE>
 map <Leader>ee :Eenvironment<SPACE>
 map <Leader>ef :Efixture<SPACE>
+map <Leader>eg :edit Gemfile<CR>
 map <Leader>eh :Ehelper<SPACE>
 map <Leader>ei :Einitializer<SPACE>
 map <Leader>ejs :Ejavascript<SPACE>
@@ -82,6 +85,7 @@ map <Leader>ed :find
 map <Leader>sc :Scontroller<SPACE>
 map <Leader>se :Senvironment<SPACE>
 map <Leader>sf :Sfixture<SPACE>
+map <Leader>sg :split Gemfile<CR>
 map <Leader>sh :Shelper<SPACE>
 map <Leader>si :Sinitializer<SPACE>
 map <Leader>sjs :Sjavascript<SPACE>
@@ -99,6 +103,7 @@ map <Leader>sv :Sview<SPACE>
 map <Leader>vc :Vcontroller<SPACE>
 map <Leader>ve :Venvironment<SPACE>
 map <Leader>vf :Vfixture<SPACE>
+map <Leader>vg :vsplit Gemfile<CR>
 map <Leader>vh :Vhelper<SPACE>
 map <Leader>vi :Vinitializer<SPACE>
 map <Leader>vjs :Vjavascript<SPACE>
@@ -116,6 +121,7 @@ map <Leader>vv :Vview<SPACE>
 map <Leader>tc :Tcontroller<SPACE>
 map <Leader>te :Tenvironment<SPACE>
 map <Leader>tf :Tfixture<SPACE>
+map <Leader>tg :tabedit Gemfile<CR>
 map <Leader>th :Thelper<SPACE>
 map <Leader>ti :Tinitializer<SPACE>
 map <Leader>tjs :Tjavascript<SPACE>

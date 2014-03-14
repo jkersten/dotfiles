@@ -2,14 +2,51 @@ set nocompatible
 filetype off
 
 runtime macros/matchit.vim
-source ~/bundles.vim
+
+if filereadable(expand("~/bundles.vim"))
+  source ~/bundles.vim
+endif
 
 " File types
 filetype plugin indent on
 syntax enable
 
+if has('clipboard')
+  if has('unnamedplus')
+    set clipboard=unnamedplus
+  else
+    set clipboard=unnamed
+  endif
+endif
+
+set viewoptions=folds,options,cursor,unix,slash
+set virtualedit=onemore
+set hidden
+
+set dir=$HOME/.vim/tmp/swp//,/var/tmp//,/tmp//
+set backup
+set backupdir=./.backup,$HOME/.vim/tmp/backup,/var/tmp,/tmp
+
+if has('persistent_undo')
+  set undofile
+  set undodir=$HOME/.vim/tmp/undo,/var/tmp,/tmp
+  set undolevels=1000
+  set undoreload=10000
+endif
+
+set tabpagemax=15
+set showmode
+set cursorline
+
+set scrolljump=5
+set scrolloff=3
+
+set splitright
+set splitbelow
+
 " File encoding
 set fileencoding=utf-8
+scriptencoding=utf-8
 set encoding=utf-8
 
 " White space
@@ -46,15 +83,13 @@ set colorcolumn=110
 " Shell
 "set noswapfile
 set shell=/bin/zsh
-"set term=screen-256color
 set visualbell
 set mouse=a
-"set t_Co=256
+set mousehide
 
 " Current line
 "set relativenumber
 set number
-set cursorline
 
 set nrformats=octal
 
@@ -63,23 +98,11 @@ set timeout
 set timeoutlen=1000
 set ttimeoutlen=100
 
-" Theme
-"let g:solarized_termcolors=256
-"let g:hybrid_use_Xresources = 1
-"set background=light
-set background=dark
-set laststatus=2
-colorscheme solarized
-"colorscheme hybrid
-
-" Buffer options
-set hidden
 
 " Status line
 set showcmd
 set history=5000
 let g:airline_powerline_fonts = 1
-highlight SignColumn ctermbg=black
 
 " Keyboard mappings
 let mapleader = ","
@@ -118,5 +141,11 @@ augroup rubypath
   autocmd!
   autocmd FileType ruby setlocal suffixesadd+=.rb
 augroup END
+
+" Theme
+set background=dark
+set laststatus=2
+colorscheme solarized
+highlight SignColumn ctermbg=black
 
 source ~/mappings.vim
