@@ -34,7 +34,7 @@ create_executables "home/bin"
 
 echo ""
 echo "Creating ~/.vim/.tmp"
-mkdir -p $HOME/.vim/.tmp/tmp
+mkdir -p $HOME/.vim/.tmp/swp
 mkdir -p $HOME/.vim/.tmp/undo
 mkdir -p $HOME/.vim/.tmp/backup
 
