@@ -33,10 +33,13 @@ create_executables "home/.git_template/hooks"
 create_executables "home/bin"
 
 echo ""
-echo "Creating ~/.vim/.tmp"
+echo "Initializing VIM"
+rm -rf $HOME/.vim
 mkdir -p $HOME/.vim/.tmp/swp
 mkdir -p $HOME/.vim/.tmp/undo
 mkdir -p $HOME/.vim/.tmp/backup
+git clone https://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle
+echo "  Please run :BundleInstall in VIM"
 
 echo ""
 echo "Backups can be found in ~/dotfiles_old"
