@@ -31,8 +31,8 @@ noremap <C-h> :noh<cr>
 inoremap jj <ESC>
 
 " RSpec.vim mappings
-map <Leader>bi :! bundle install && rbenv rehash && touch tmp/restart.txt<CR>
-map <Leader>bu :! bundle update && rbenv rehash && touch tmp/restart.txt<CR>
+map <Leader>bi :Dispatch! bundle install && rbenv rehash && touch tmp/restart.txt<CR>
+map <Leader>bu :Dispatch! bundle update && rbenv rehash && touch tmp/restart.txt<CR>
 map <Leader>c :TComment<CR>
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>tb :TagbarToggle<CR>

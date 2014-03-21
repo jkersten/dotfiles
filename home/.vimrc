@@ -106,7 +106,7 @@ let g:airline_powerline_fonts = 1
 
 " Keyboard mappings
 let mapleader = ","
-let g:rspec_command = "!time spring rspec {spec}"
+let g:rspec_command = 'call Send_to_Tmux("time spring rspec {spec}\n")'
 
 " CtrlP
 set wildignore+=*/tmp/*,*/log/*,*/bin/*,*.so,*.swp,*.zip
