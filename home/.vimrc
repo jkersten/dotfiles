@@ -34,6 +34,7 @@ if has('persistent_undo')
   set undoreload=10000
 endif
 
+set shortmess+=I
 set tabpagemax=15
 set showmode
 set cursorline
@@ -57,7 +58,7 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab
-set listchars=tab:▸\ ,eol:¬,nbsp:⋅,trail:⋅
+set listchars=tab:▸\ ,eol:¬,nbsp:⋅,trail:⋅     " Show whitespace characters
 set shiftround
 
 " Wrapping

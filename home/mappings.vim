@@ -8,6 +8,7 @@ nnoremap k gk
 nnoremap 0 g0
 nnoremap ^ g^
 nnoremap $ g$
+nnoremap <Leader>w :w<CR>
 nnoremap <tab> >>
 nnoremap <s-tab> <<
 vnoremap <tab> >>
@@ -61,8 +62,9 @@ map <Leader>vim :tabe ~/.vimrc<CR>
 map <Leader>vib :tabe ~/bundles.vim<CR>
 map <Leader>vik :tabe ~/mappings.vim<CR>
 map <Leader>nm :set relativenumber!<CR>
-map <Leader>mi :! rake db:migrate<CR>
-map <leader>rb :! rake db:rollback<CR>
+map <Leader>mi :Dispatch! rake db:migrate<CR>
+map <leader>rb :Dispatch! rake db:rollback<CR>
+map <leader>re :Dispatch touch tmp/restart.txt<CR>
 map <Leader><Leader> :@<CR>
 
 map <Leader>ec :Econtroller<SPACE>

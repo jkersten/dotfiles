@@ -19,6 +19,7 @@ Bundle 'rking/ag.vim'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'SirVer/ultisnips'
 Bundle 'Lokaltog/vim-easymotion.git'
+Bundle 'terryma/vim-expand-region'
 "Bundle 'majutsushi/tagbar'
 
 Bundle 'tpope/vim-fugitive'
