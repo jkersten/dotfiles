@@ -45,21 +45,13 @@ DISABLE_CORRECTION="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(rails git ruby)
+plugins=(rails git ruby rbenv)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-#export PATH="/home/joost/.rvm/gems/ruby-2.0.0-p353/bin:/home/joost/.rvm/gems/ruby-2.0.0-p353@global/bin:/home/joost/.rvm/rubies/ruby-2.0.0-p353/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 # export MANPATH="/usr/local/man:$MANPATH"
-
-# # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -71,9 +63,6 @@ export LANG=en_US.UTF-8
 export EDITOR=vim
 
 alias v='vim'
-alias ls='ls -G'
-#alias rspec='clear; rspec'
-alias zspec='clear; zeus rspec'
 
 # Disable auto-correct
 unsetopt correct_all
@@ -85,14 +74,21 @@ function git_custom_status() {
   fi
 }
 
-genpasswd() {
-    local l=$1
-    [ "$l" == "" ] && l=20
-    tr -dc A-Za-z0-9_ < /dev/urandom | head -c ${l} | xargs
-}
+PROMPT='[%D{%H:%M}] $fg[yellow]%n%{$reset_color%} at $fg[blue]%m%{$reset_color%} in $fg[magenta]${PWD/#$HOME/~}$(git_custom_status) $fg[magenta]$ %{$reset_color%}'
 
 TERM="screen-256color"
 
-PROMPT='[%D{%H:%M}] $fg[yellow]%n%{$reset_color%} at $fg[blue]%m%{$reset_color%} in $fg[magenta]${PWD/#$HOME/~}$(git_custom_status) $fg[magenta]$ %{$reset_color%}'
-
 source $HOME/.zshenv
+
+# Use <C-z> to restore vim
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    fg
+    zle redisplay
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
