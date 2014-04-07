@@ -1,0 +1,6 @@
+#!/bin/bash
+
+if [ "$l" == "" ]; then
+  l=20
+fi
+tr -dc A-Za-z0-9_ < /dev/urandom | head -c ${l} | xargs

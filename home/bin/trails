@@ -1,0 +1,40 @@
+#!/bin/bash
+CURRENT_SESSION=${PWD##*/}
+
+# Do we have a Rakefile in the directory?
+if [ ! -f Rakefile ]
+then
+  echo "This is not a rails project"
+  exit 1;
+fi
+
+# Start up a tmux session
+tmux new-session -d -s $CURRENT_SESSION
+
+# ZShell window
+tmux new-window
+tmux rename-window zsh
+
+# VIM window
+tmux send-keys 'vim' 'C-m'
+tmux rename-window vim
+
+# RSpec window for running tests
+tmux new-window
+tmux rename-window rspec
+
+# Rails console window
+tmux new-window
+tmux rename-window console
+tmux send-keys 'rails console' 'C-m'
+
+# Rails log
+tmux new-window
+tmux rename-window log
+tmux send-keys 'tail -f log/development.log' 'C-m'
+
+# Select the first window
+tmux select-window -t 2
+
+# Attach the tmux session
+tmux attach -t $CURRENT_SESSION
