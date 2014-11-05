@@ -37,13 +37,15 @@ Bundle 'tpope/vim-dispatch'
 
 " Language plugins
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'heartsentwined/vim-ember-script'
+Bundle 'heartsentwined/vim-emblem'
+Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'slim-template/vim-slim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'jgdavey/tslime.vim'
-Bundle 'heartsentwined/vim-emblem'
 
 Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'

@@ -1,3 +1,1 @@
 --skip-test-unit
---template http://git.railsdev.nl/jvkersten/rails_template/raw/master/template.rb
--d mysql

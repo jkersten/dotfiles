@@ -63,6 +63,7 @@ export LANG=en_US.UTF-8
 export EDITOR=vim
 
 alias v='vim'
+alias tat=tmux attach -t `basename $PWD`
 
 # Disable auto-correct
 unsetopt correct_all

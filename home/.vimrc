@@ -53,6 +53,7 @@ set encoding=utf-8
 " White space
 set autoindent
 set smartindent
+set cindent
 set backspace=indent,eol,start
 set tabstop=2
 set softtabstop=2

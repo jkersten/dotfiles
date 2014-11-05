@@ -64,7 +64,7 @@ map <Leader>vik :tabe ~/mappings.vim<CR>
 map <Leader>nm :set relativenumber!<CR>
 map <Leader>mi :Dispatch! rake db:migrate<CR>
 map <leader>rb :Dispatch! rake db:rollback<CR>
-map <leader>re :Dispatch touch tmp/restart.txt<CR>
+map <leader>res :Dispatch touch tmp/restart.txt<CR>
 map <Leader><Leader> :@<CR>
 
 map <Leader>ec :Econtroller<SPACE>
